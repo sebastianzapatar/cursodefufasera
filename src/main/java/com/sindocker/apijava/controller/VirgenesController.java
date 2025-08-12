@@ -28,6 +28,7 @@ public class VirgenesController {
     public void addVirgene(@RequestBody @Valid
                                VirgenesDTO virgenes){
 
+
         this.virgenesService.save(virgenes);
     }
     @DeleteMapping("/{id}")

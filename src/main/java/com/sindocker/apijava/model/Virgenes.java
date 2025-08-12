@@ -22,4 +22,7 @@ public class Virgenes {
     private Long age;
     @Column(unique = true)
     private String email;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="hechicero_id",nullable = true)
+    private Hechicero hechicero;
 }

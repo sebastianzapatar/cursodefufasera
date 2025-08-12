@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record VirgenesDTO(
+        @NotBlank
+        String hechiceroId,
         @NotBlank(message="No soy puta soy versátil")
         @Size(min=2)
         String nombre,

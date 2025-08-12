@@ -1,8 +1,10 @@
 package com.sindocker.apijava.service;
 
+import com.sindocker.apijava.dao.IHechiceroDAO;
 import com.sindocker.apijava.dao.IVirgenesDao;
 import com.sindocker.apijava.dto.VirgenesDTO;
 import com.sindocker.apijava.excepciones.UniqueException;
+import com.sindocker.apijava.model.Hechicero;
 import com.sindocker.apijava.model.Virgenes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,8 @@ import java.util.List;
 public class VirgenesService implements IVirgenesService {
     @Autowired
     private IVirgenesDao virgenesDao;
-
+    @Autowired
+    private IHechiceroDAO hechiceroDAO;
     @Override
     public List<VirgenesDTO> getVirgenes() {
 
@@ -22,6 +25,7 @@ public class VirgenesService implements IVirgenesService {
                 .stream()
                 .map(virgen ->
                         new VirgenesDTO(
+                                "1",
                                 virgen.getName(),
                                 virgen.getDescription(),
                                 virgen.getAge(),
@@ -43,6 +47,13 @@ public class VirgenesService implements IVirgenesService {
         virgenesEntity.setName(virgenes.nombre());
         virgenesEntity.setDescription(virgenes.descripcion());
         virgenesEntity.setEmail(virgenes.correo());
+        Hechicero hechiceroEntity =
+                this.hechiceroDAO.findById(virgenes.hechiceroId())
+                        .orElse(null);
+        if(hechiceroEntity == null) {
+            throw new UniqueException("Hechicero no encontrado");
+        }
+        virgenesEntity.setHechicero(hechiceroEntity);
         Virgenes existe=this.virgenesDao.
                 findVirgenesByEmail(virgenes.correo()).
                 orElse(null);
