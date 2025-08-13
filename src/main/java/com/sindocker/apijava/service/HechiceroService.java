@@ -3,6 +3,7 @@ package com.sindocker.apijava.service;
 import com.sindocker.apijava.dao.IHechiceroDAO;
 import com.sindocker.apijava.dto.HechiceroDTO;
 import com.sindocker.apijava.model.Hechicero;
+import com.sindocker.apijava.model.Virgenes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,4 +33,10 @@ public class HechiceroService implements IHechiceroService {
         return this.hechiceroDAO.findById(id).
                 orElse(null);
     }
+
+    @Override
+    public List<Virgenes> getVirgenes(String id) {
+        return this.hechiceroDAO.findVirgenenesById(id);
+    }
+
 }

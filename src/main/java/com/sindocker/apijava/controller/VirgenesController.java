@@ -1,6 +1,7 @@
 package com.sindocker.apijava.controller;
 
 import com.sindocker.apijava.dto.VirgenesDTO;
+import com.sindocker.apijava.model.Hechicero;
 import com.sindocker.apijava.model.Virgenes;
 import com.sindocker.apijava.service.IVirgenesService;
 import jakarta.validation.Valid;
@@ -33,6 +34,12 @@ public class VirgenesController {
     }
     @DeleteMapping("/{id}")
     public void deleteVirgene(@PathVariable Long id){
+
         this.virgenesService.delete(id);
+    }
+    @GetMapping("/hechicero/{id}")
+    public List<Virgenes> getHechicero(@PathVariable String id){
+        return this.virgenesService.listarPorHechicero(id);
+
     }
 }

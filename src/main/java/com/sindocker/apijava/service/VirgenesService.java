@@ -69,4 +69,10 @@ public class VirgenesService implements IVirgenesService {
     public void delete(Long id) {
         this.virgenesDao.deleteById(id);
     }
+    @Override
+    public List<Virgenes> listarPorHechicero(String hechiceroId) {
+        return virgenesDao.findByHechicero_Id(hechiceroId);
+        // o: return virgenesRepository.findAllByHechiceroIdFetch(hechiceroId);
+    }
+
 }

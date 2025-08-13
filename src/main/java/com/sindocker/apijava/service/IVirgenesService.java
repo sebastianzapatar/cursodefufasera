@@ -13,4 +13,6 @@ public interface IVirgenesService {
     default String saludar(){
         return "Jara el virgen";
     }
+    List<Virgenes> listarPorHechicero(String hechiceroId);
+
 }

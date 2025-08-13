@@ -2,6 +2,7 @@ package com.sindocker.apijava.service;
 
 import com.sindocker.apijava.dto.HechiceroDTO;
 import com.sindocker.apijava.model.Hechicero;
+import com.sindocker.apijava.model.Virgenes;
 
 import java.util.List;
 import java.util.Set;
@@ -13,5 +14,5 @@ public interface IHechiceroService {
     List<Hechicero> getHechiceros();
     Hechicero save(HechiceroDTO hechiceroDTO);
     Hechicero getHechiceroById(String id);
-
+    List<Virgenes> getVirgenes(String id);
 }
