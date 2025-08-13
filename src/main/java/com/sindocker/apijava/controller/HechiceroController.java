@@ -26,9 +26,9 @@ public class HechiceroController {
     public Hechicero createHechicero(@RequestBody HechiceroDTO hechicero) {
         return this.hechiceroService.save(hechicero);
     }
-    @GetMapping("/{id}/virgenes")
-    public List<Virgenes> getHechiceroVirgenes(@PathVariable("id") String id) {
-        return this.hechiceroService.getVirgenes(id);
+    @GetMapping("/con-virgenes")
+    public List<Hechicero> getHechicerosConVirgenes() {
+        return hechiceroService.listarConVirgenes();
     }
 
 }

@@ -35,8 +35,9 @@ public class HechiceroService implements IHechiceroService {
     }
 
     @Override
-    public List<Virgenes> getVirgenes(String id) {
-        return this.hechiceroDAO.findVirgenenesById(id);
+    public List<Hechicero> listarConVirgenes() {
+        return this.hechiceroDAO.findAll();
     }
+
 
 }

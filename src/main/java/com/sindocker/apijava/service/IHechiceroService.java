@@ -14,5 +14,5 @@ public interface IHechiceroService {
     List<Hechicero> getHechiceros();
     Hechicero save(HechiceroDTO hechiceroDTO);
     Hechicero getHechiceroById(String id);
-    List<Virgenes> getVirgenes(String id);
+    List<Hechicero> listarConVirgenes();
 }
